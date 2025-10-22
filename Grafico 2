@@ -1,0 +1,31 @@
+df_clean = df.dropna(subset=[
+    "Primary energy consumption per capita (kWh/person)",
+    "Value_co2_emissions_kt_by_country",
+    "Renewable energy share in the total final energy consumption (%)"
+])
+
+# Tomamos un año representativo (por ejemplo 2019 o el más reciente disponible en los datos limpios)
+latest_year = df_clean["Year"].max()
+df_recent = df_clean[df_clean["Year"] == latest_year]
+
+# Graficar la relación CO2 vs consumo energético
+plt.figure(figsize=(8,5))
+scatter = sns.scatterplot(
+    data=df_recent,
+    x="Primary energy consumption per capita (kWh/person)",
+    y="Value_co2_emissions_kt_by_country",
+    hue="Renewable energy share in the total final energy consumption (%)",
+    palette="viridis",
+    alpha=0.8
+)
+
+plt.title(f"Emisiones de CO₂ vs. Consumo energético per cápita ({latest_year})")
+plt.xlabel("Consumo de energía per cápita (kWh/persona)")
+plt.ylabel("Emisiones de CO₂ (kilotoneladas)")
+plt.grid(True)
+
+# Mostrar leyenda solo si existe
+if scatter.legend_:
+    plt.legend(title="% Energía renovable", bbox_to_anchor=(1.05, 1), loc='upper left')
+
+plt.show()
