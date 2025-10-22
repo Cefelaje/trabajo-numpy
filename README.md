@@ -1,6 +1,7 @@
 # Grupo ASIR 2
 Trabajo Numpy Datasets
-# Analisis de Fatos con Numpy
+# Analisis de Datos con Numpy
+Trabajo Realizado sobre investigacion con la pagina web Numpy
 # Miembros del grupo
 - Alvaro Torregimeno
 - Alejandro Ocampo
