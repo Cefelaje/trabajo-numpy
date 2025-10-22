@@ -1,0 +1,27 @@
+bottom10 = (
+    df.groupby("Entity")["Access to electricity (% of population)"]
+      .mean()
+      .reset_index()
+      .sort_values(by="Access to electricity (% of population)", ascending=True)
+      .head(10)
+)
+
+plt.figure(figsize=(12,6))
+ax = sns.barplot(
+    data=bottom10,
+    x="Entity",
+    y="Access to electricity (% of population)",
+    palette="rocket"
+)
+
+for i, value in enumerate(bottom10["Access to electricity (% of population)"]):
+    ax.text(i, value + 1, f"{value:.2f}%", ha='center', va='bottom', fontsize=10)
+
+plt.title("Top 10 países con menor acceso promedio a electricidad", fontsize=14, weight='bold')
+plt.xlabel("País")
+plt.ylabel("Acceso promedio a electricidad (%)")
+plt.xticks(rotation=45, ha='right')
+plt.ylim(0, 105)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.show()
