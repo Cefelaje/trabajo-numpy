@@ -1,0 +1,19 @@
+countries = ["Afghanistan", "Nigeria", "India", "Yemen", "United States"]
+df_sel = df[df["Entity"].isin(countries)]
+
+plt.figure(figsize=(10,6))
+sns.lineplot(
+    data=df_sel,
+    x="Year",
+    y="Access to electricity (% of population)",
+    hue="Entity",
+    marker="o"
+)
+plt.title("Evolución del acceso a la electricidad por país")
+plt.xlabel("Año")
+plt.ylabel("Acceso a electricidad (%)")
+plt.ylim(0, 105)
+plt.grid(True)
+plt.legend(title="País")
+plt.tight_layout()
+plt.show()
