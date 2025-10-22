@@ -2,8 +2,8 @@
 Trabajo Numpy Datasets
 # Analisis de Fatos con Numpy
 # Miembros del grupo
-Alvaro Torregimeno
-Alejandro Ocampo
+- Alvaro Torregimeno
+- Alejandro Ocampo
 # Dataset Elegido
 Consumo Energetico por paises
 # Objetivo
